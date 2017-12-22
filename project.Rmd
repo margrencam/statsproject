@@ -9,12 +9,12 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Create data frames for each participant and her VOT measurements 
+## Intro 
 
 These are dataframes containing the name of the participant and a small sample of the VOT measurements taken from the pilot experiment. 
 VOT measurements were taken from recordings of spontaneous speech, and are of word-initial [p], [t], or [k].  There are 10 VOT samples in each category (explained below).  The words selected to comprise the data for this project are the first 10 with easy and reliable VOT measurements in the folder of audio clips from the original recording.  The 10 VOT measurements in each category are, then, quasi-random.
 
-VOT measurements for each participant are taken first from French words in a monolingual French context and second from English codeswitch words in a predominantly French conversational context.
+VOT measurements (in ms) for each participant are taken first from French words in a monolingual French context and second from English codeswitch words in a predominantly French conversational context.
 
 The first participant, F, is a native francophone bilingual in English.  Her data frame will contain two categories of VOT measurements.  The first, which will be named "L1", is of French words in a monolingual context.  The second, which will be named "L1toL2", is of English words during a predominantly French conversation.  
 
@@ -22,4 +22,45 @@ The second participant, P, is a native anglophone bilingual in French.  Her data
 
 The analyses that follow are intended to provide a comparison of two speakers of different native languages in their average French VOTs and their average English VOTs in instances of French to English codeswitching.
 Using this sample data, predictions will be made for what to expect of more data from the same speakers or of a larger, hypothetical data set.
+
+
+## Data frames for each participant
+
+Data frames include :
+The name of the participant, the phoneme whose VOT was measured, and the VOT of the corresponding phoneme.
+
+```{r}
+# Participant F
+
+participant_F <- c('F')
+L1phone <- c('k', 'k', 'k', 'p', 'p', 'p', 'p', 't', 'p', 'p')
+L1 <- c(24, 14, 25, 14, 22, 14, 13, 37, 13, 21)
+L1toL2phone <- c('k','k','k','k','k', 'p', 'p', 'k','k', 't')
+L1toL2 <- c(50, 30, 29, 44, 48, 45, 65, 30, 42, 54)
+
+F.data <- data.frame(participant_F, L1phone, L1, L1toL2phone, L1toL2 )
+
+summary(F.data)
+
+print(F.data)
+```
+
+```{r}
+# Participant P
+
+participant_P <- c('P')
+L2phone <- c('p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 't')
+L2 <- c(9, 13, 18, 11, 11, 16, 10, 27, 10, 19)
+L2toL1phone <- c('p', 't', 't', 'p', 'p', 'p', 'k', 't', 'p', 'p')
+L2toL1 <- c(49, 65, 67, 23, 17, 31, 51, 49, 59, 36)
+
+P.data <- data.frame(participant_P, L2phone, L2, L2toL1phone, L2toL1)
+
+summary(P.data)
+
+print(P.data)
+```
+
+
+
 
