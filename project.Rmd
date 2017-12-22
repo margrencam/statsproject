@@ -45,6 +45,17 @@ summary(F.data)
 print(F.data)
 ```
 
+
+
+```{r}
+# Boxplot for Participant F
+# shows basic comparison between VOT for French monolingual context and for English words during a codeswitch
+
+boxplot(L1, L1toL2)
+
+```
+
+
 ```{r}
 # Participant P
 
@@ -61,6 +72,13 @@ summary(P.data)
 print(P.data)
 ```
 
+```{r}
+
+# Boxplot for Participant P
+# shows basic comparison between VOT for French monolingual context and for English words during a codeswitch
+
+boxplot(L2, L2toL1)
+```
 
 
 
