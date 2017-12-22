@@ -63,7 +63,7 @@ print(P.data)
 ```
 
 
-## Boxplots for Original Data of Each Participant
+## Boxplots and Histograms for Original Data of Each Participant
 
 The boxplots provide a basic visual comparison of the original data for each participant.  Though looking at the tables, there are clearly differences between their respective VOTs in the two conditions, a visual representation is useful for quickly comparing the two.
 
@@ -73,6 +73,14 @@ The boxplots provide a basic visual comparison of the original data for each par
 
 boxplot(L1, L1toL2)
 
+# Histogram for L1 VOTs for Participant F
+
+hist(F.data$L1, main="French VOTs of Particpant F", xlab = "VOT (ms)")
+
+# Histogram for L1toL2 VOTs for Participant F
+
+hist(F.data$L1toL2, main="English Codeswitch VOTs of Particpant F", xlab = "VOT (ms)")
+
 ```
 
 ```{r}
@@ -81,7 +89,16 @@ boxplot(L1, L1toL2)
 # shows basic comparison between VOT for French monolingual context and for English words during a codeswitch
 
 boxplot(L2, L2toL1)
+
+# Histogram for L2 VOTs for Participant P
+
+hist(P.data$L2, main="French VOTs of Particpant F", xlab = "VOT (ms)")
+
+# Histogram for L2toL1 VOTs for Participant P
+
+hist(P.data$L2toL1, main="English Codeswitch VOTs of Particpant P", xlab = "VOT (ms)")
 ```
+
 
 
 
@@ -95,5 +112,26 @@ That said, the difference in mean VOT in French monolingual contexts is quite sm
 There is a smaller difference between the two speakers' mean VOTs in the French to English codeswitching environment.  
 
 From the boxplots, it can be noted that, for both speakers, there is greater variety in the measured VOTs in the codeswitching condition, especially with Participant P.  Whereas in the French monolingual condition, both speakers' VOTs are more tightly grouped around the mean.  
+
+
+## Expansion of the dataset by resampling
+
+Using a basic bootstrap function, more datapoints will be generated to allow for comparison between the two speakers.
+
+
+```{r}
+
+library(boot)
+
+participant_F <- c('F')
+L1phone <- c('k', 'k', 'k', 'p', 'p', 'p', 'p', 't', 'p', 'p')
+L1 <- c(24, 14, 25, 14, 22, 14, 13, 37, 13, 21)
+L1toL2phone <- c('k','k','k','k','k', 'p', 'p', 'k','k', 't')
+L1toL2 <- c(50, 30, 29, 44, 48, 45, 65, 30, 42, 54)
+
+F.data <- data.frame(participant_F, L1phone, L1, L1toL2phone, L1toL2 )
+
+Participant_F_boot <- boot(data=F.data, statistic=L1, R=100)
+```
 
 
