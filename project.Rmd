@@ -46,16 +46,6 @@ print(F.data)
 ```
 
 
-
-```{r}
-# Boxplot for Participant F
-# shows basic comparison between VOT for French monolingual context and for English words during a codeswitch
-
-boxplot(L1, L1toL2)
-
-```
-
-
 ```{r}
 # Participant P
 
@@ -72,6 +62,19 @@ summary(P.data)
 print(P.data)
 ```
 
+
+## Boxplots for Original Data of Each Participant
+
+The boxplots provide a basic visual comparison of the original data for each participant.  Though looking at the tables, there are clearly differences between their respective VOTs in the two conditions, a visual representation is useful for quickly comparing the two.
+
+```{r}
+# Boxplot for Participant F
+# shows basic comparison between VOT for French monolingual context and for English words during a codeswitch
+
+boxplot(L1, L1toL2)
+
+```
+
 ```{r}
 
 # Boxplot for Participant P
@@ -80,5 +83,17 @@ print(P.data)
 boxplot(L2, L2toL1)
 ```
 
+
+
+## Initial comparison of the two speakers, based on the original sample data 
+
+Based on the original sample data, we can make some rudimentary observations about the two speakers' articulatory patterns.
+
+Unexpectedly, Participant P has displayed a shorter VOT in a French monolingual context, on average.  This is surprising for two reasons : as an anglophone, Participant P would be predicted to have longer VOT than a francophone native, and -- though this has not been factored in to the present analysis -- Participant P has a generally slower speech rate than that of Participant F.
+That said, the difference in mean VOT in French monolingual contexts is quite small within the original sample size -- a mean of 19.7 for Participant F and of 14.4 for Participant P.  
+
+There is a smaller difference between the two speakers' mean VOTs in the French to English codeswitching environment.  
+
+From the boxplots, it can be noted that, for both speakers, there is greater variety in the measured VOTs in the codeswitching condition, especially with Participant P.  Whereas in the French monolingual condition, both speakers' VOTs are more tightly grouped around the mean.  
 
 
